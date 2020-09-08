@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Albeoris.Framework", "Albeoris.Framework\Albeoris.Framework.csproj", "{B95B0707-43F7-4E4F-8EF1-2640184F6E3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B95B0707-43F7-4E4F-8EF1-2640184F6E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95B0707-43F7-4E4F-8EF1-2640184F6E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95B0707-43F7-4E4F-8EF1-2640184F6E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95B0707-43F7-4E4F-8EF1-2640184F6E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

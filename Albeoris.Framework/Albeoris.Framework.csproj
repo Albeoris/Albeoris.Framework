@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Albeoris Framework</Title>
+        <Authors>Albeoris</Authors>
+        <Description>A small set of utilities that I'm tired of copying from project to project.</Description>
+        <Copyright>Albeoris</Copyright>
+        <PackageProjectUrl>https://github.com/Albeoris/Albeoris.Framework</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/Albeoris/Albeoris.Framework/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/Albeoris/Albeoris.Framework</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>internal, tools, utilits, extensions</PackageTags>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+    </PropertyGroup>
+
+</Project>
