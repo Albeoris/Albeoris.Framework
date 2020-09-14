@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Albeoris.Framework.System;
 
 namespace Albeoris.Framework.Reflection
 {
@@ -11,13 +13,18 @@ namespace Albeoris.Framework.Reflection
 
         public EmbeddedResource(Assembly assembly, String relativePath)
         {
+            if (assembly is null) throw new ArgumentNullException(nameof(assembly));
+            if (relativePath is null) throw new ArgumentNullException(nameof(relativePath));
+            if (relativePath == String.Empty) throw new ArgumentEmptyException(nameof(relativePath));
+
             String resourceName = FormatResourceName(assembly, relativePath);
-            ManifestResourceInfo info = assembly.GetManifestResourceInfo(resourceName);
+            var info = GetManifestResourceInfo(assembly, relativePath, resourceName);
+            Info = info;
+        }
 
-            if (info is null)
-                throw CreateNotFoundException(assembly, relativePath, resourceName);
-
-            Info = new ManifestResourceInfo(assembly, resourceName, info.ResourceLocation);
+        private EmbeddedResource(ManifestResourceInfo info)
+        {
+            Info = info;
         }
 
         public Stream OpenStream()
@@ -31,7 +38,31 @@ namespace Albeoris.Framework.Reflection
             return new StreamReader(OpenStream());
         }
 
-        private Exception CreateNotFoundException(Assembly assembly, String relativePath, String resourceName)
+        public static IEnumerable<EmbeddedResource> Enumerate(Assembly assembly, Wildcard wildcard)
+        {
+            Wildcard pattern = new Wildcard(FormatResourceName(assembly, wildcard.Pattern), wildcard.StringComparison);
+            String[] names = assembly.GetManifestResourceNames();
+            foreach (String resourceName in names)
+            {
+                if (pattern.IsMatch(resourceName))
+                {
+                    ManifestResourceInfo info = GetManifestResourceInfo(assembly, wildcard.Pattern, resourceName);
+                    yield return new EmbeddedResource(info);
+                }
+            }
+        }
+
+        private static ManifestResourceInfo GetManifestResourceInfo(Assembly assembly, String relativePath, String resourceName)
+        {
+            ManifestResourceInfo info = assembly.GetManifestResourceInfo(resourceName);
+
+            if (info is null)
+                throw CreateNotFoundException(assembly, relativePath, resourceName);
+
+            return new ManifestResourceInfo(assembly, resourceName, info.ResourceLocation);
+        }
+
+        private static Exception CreateNotFoundException(Assembly assembly, String relativePath, String resourceName)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Embedded resource is not exists: {resourceName}");
