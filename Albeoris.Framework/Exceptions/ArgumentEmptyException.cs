@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Albeoris.Framework.System
+namespace Albeoris.Framework.Exceptions
 {
     public class ArgumentEmptyException : ArgumentException
     {

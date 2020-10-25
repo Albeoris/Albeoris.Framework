@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Albeoris.Framework.Collections;
 
-namespace Albeoris.Framework.System
+namespace Albeoris.Framework.Strings
 {
     // ReSharper disable once InconsistentNaming
     public static class _String_
@@ -145,9 +145,6 @@ namespace Albeoris.Framework.System
 
         public static String TrimEnd(this String source, String suffix, StringComparison comparisonType)
         {
-            if (source == null)
-                return null;
-
             Int32 sourceLength = source.Length;
             Int32 suffixLength = suffix.Length;
 

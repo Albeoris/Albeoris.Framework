@@ -27,10 +27,9 @@ namespace Albeoris.Framework.Collections
                 list[index] = item;
         }
 
-        public static Int32 Insert<T>(this IList<T> list, T item, IComparer<T> comparer = null)
+        public static Int32 Insert<T>(this IList<T> list, T item, IComparer<T>? comparer = null)
         {
-            if (comparer == null)
-                comparer = Comparer<T>.Default;
+            comparer ??= Comparer<T>.Default;
 
             Int32 i = 0;
             while (i < list.Count && comparer.Compare(list[i], item) < 0)

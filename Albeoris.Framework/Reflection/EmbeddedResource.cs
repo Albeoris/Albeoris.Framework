@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Albeoris.Framework.Exceptions;
+using Albeoris.Framework.Strings;
 using Albeoris.Framework.System;
 
 namespace Albeoris.Framework.Reflection

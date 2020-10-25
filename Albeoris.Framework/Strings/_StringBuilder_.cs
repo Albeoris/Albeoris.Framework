@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Albeoris.Framework.System
+namespace Albeoris.Framework.Strings
 {
     // ReSharper disable once UnusedType.Global
     // ReSharper disable once InconsistentNaming

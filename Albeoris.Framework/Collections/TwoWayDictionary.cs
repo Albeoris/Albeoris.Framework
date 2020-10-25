@@ -8,25 +8,25 @@ namespace Albeoris.Framework.Collections
     {
         private readonly Dictionary<TKey, TValue> _fwdDictionary;
         private readonly Dictionary<TValue, TKey> _revDictionary;
-        private readonly Boolean _allowDublicateValues;
+        private readonly Boolean _allowDuplicateValues;
 
-        public TwoWayDictionary(Boolean allowDublicateValues = false)
+        public TwoWayDictionary(Boolean allowDuplicateValues = false)
             : this(null, null)
         {
-            _allowDublicateValues = allowDublicateValues;
+            _allowDuplicateValues = allowDuplicateValues;
         }
 
-        public TwoWayDictionary(IEqualityComparer<TKey> keyComparer)
+        public TwoWayDictionary(IEqualityComparer<TKey>? keyComparer)
             : this(keyComparer, null)
         {
         }
 
-        public TwoWayDictionary(IEqualityComparer<TValue> valueComparer)
+        public TwoWayDictionary(IEqualityComparer<TValue>? valueComparer)
             : this(null, valueComparer)
         {
         }
 
-        public TwoWayDictionary(IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer)
+        public TwoWayDictionary(IEqualityComparer<TKey>? keyComparer, IEqualityComparer<TValue>? valueComparer)
         {
             _fwdDictionary = new Dictionary<TKey, TValue>(keyComparer);
             _revDictionary = new Dictionary<TValue, TKey>(valueComparer);
@@ -43,7 +43,7 @@ namespace Albeoris.Framework.Collections
                 throw new ArgumentException($"Forward: {key}, {value}, ({_fwdDictionary[key]})", nameof(key), ex);
             }
 
-            if (_allowDublicateValues)
+            if (_allowDuplicateValues)
             {
                 if (!_revDictionary.ContainsKey(value))
                     _revDictionary.Add(value, key);
@@ -56,8 +56,7 @@ namespace Albeoris.Framework.Collections
 
         public void RemoveByKey(TKey key)
         {
-            TValue value;
-            if (TryGetValue(key, out value))
+            if (TryGetValue(key, out var value))
             {
                 _fwdDictionary.Remove(key);
                 _revDictionary.Remove(value);
@@ -66,8 +65,7 @@ namespace Albeoris.Framework.Collections
 
         public void RemoveByValue(TValue value)
         {
-            TKey key;
-            if (TryGetKey(value, out key))
+            if (TryGetKey(value, out var key))
             {
                 _fwdDictionary.Remove(key);
                 _revDictionary.Remove(value);

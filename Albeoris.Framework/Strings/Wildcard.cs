@@ -24,8 +24,9 @@
 // https://github.com/fastwildcard/fastwildcard
 
 using System;
+using Albeoris.Framework.Exceptions;
 
-namespace Albeoris.Framework.System
+namespace Albeoris.Framework.Strings
 {
     public sealed class Wildcard
     {
