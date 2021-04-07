@@ -19,7 +19,7 @@ namespace Albeoris.Framework.Collections
         public static void Replace<T>(this IList<T> list, Int32 index, T item, T defaultValue = default(T))
         {
             while (list.Count < index)
-                list.Add(defaultValue);
+                list.Add(defaultValue!);
 
             if (index == list.Count)
                 list.Add(item);
