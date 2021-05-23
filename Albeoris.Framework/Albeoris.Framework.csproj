@@ -13,10 +13,10 @@
         <RepositoryUrl>https://github.com/Albeoris/Albeoris.Framework</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>internal, tools, utilits, extensions</PackageTags>
-        <AssemblyVersion>1.1.4</AssemblyVersion>
-        <FileVersion>1.1.4</FileVersion>
+        <AssemblyVersion>1.1.5</AssemblyVersion>
+        <FileVersion>1.1.5</FileVersion>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <PackageVersion>1.1.4</PackageVersion>
+        <PackageVersion>1.1.5</PackageVersion>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>

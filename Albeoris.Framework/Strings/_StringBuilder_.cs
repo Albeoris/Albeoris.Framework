@@ -12,6 +12,14 @@ namespace Albeoris.Framework.Strings
             self.Length = 0;
         }
         
+        public static StringBuilder Append(this StringBuilder self, String text, Int32 startIndex)
+        {
+            var length = text.Length - startIndex;
+            self.Append(text, startIndex, length);
+
+            return self;
+        }
+        
         public static StringBuilder AppendFormatLine(this StringBuilder self, String format, params Object[] args)
         {
             self.AppendFormat(format, args);
