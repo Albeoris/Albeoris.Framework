@@ -94,6 +94,8 @@ namespace Albeoris.Framework.Reflection
             {
                 if (ch == '\\' || ch == '/')
                     sb.Append('.');
+                else if (ch == ' ')
+                    sb.Append('_');
                 else
                     sb.Append(ch);
             }
